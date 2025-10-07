@@ -34,7 +34,19 @@ require_once 'config.php';
         <main class="main-content">
             <div class="welcome-section">
                 <?php if (isLoggedIn()): ?>
-                    <h1>Bienvenue, <?= sanitize($_SESSION['user_prenom']); ?> !</h1>
+                    <?php
+                        // Safely obtain a display name from session with fallbacks
+                        if (!empty($_SESSION['user_prenom'])) {
+                            $displayName = sanitize($_SESSION['user_prenom']);
+                        } elseif (!empty($_SESSION['user_login'])) {
+                            $displayName = sanitize($_SESSION['user_login']);
+                        } elseif (!empty($_SESSION['user_nom'])) {
+                            $displayName = sanitize($_SESSION['user_nom']);
+                        } else {
+                            $displayName = 'Utilisateur';
+                        }
+                    ?>
+                    <h1>Bienvenue, <?= $displayName; ?> !</h1>
                     <p>Vous êtes connecté(e) avec succès. Vous pouvez maintenant accéder à votre profil et gérer vos informations personnelles.</p>
                 <?php else: ?>
                     <h1>Bienvenue sur ModuleConnect</h1>
