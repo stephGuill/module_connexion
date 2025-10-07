@@ -14,7 +14,7 @@ require_once 'config.php';
     <div class="container">
         <header>
             <nav>
-                <div class="logo">🔐 ModuleConnect</div>
+                <div class="logo"> ModuleConnect</div>
                 <ul class="nav-links">
                     <li><a href="index.php">Accueil</a></li>
                     <?php if (isLoggedIn()): ?>
@@ -48,12 +48,12 @@ require_once 'config.php';
                         <p>Créez et gérez facilement votre profil utilisateur avec toutes vos informations personnelles.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
+                        <div class="feature-icon"></div>
                         <h3>Sécurité Avancée</h3>
                         <p>Vos données sont protégées par un système de sécurité robuste avec chiffrement des mots de passe.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
+                        <div class="feature-icon"></div>
                         <h3>Interface Moderne</h3>
                         <p>Une interface utilisateur intuitive et moderne pour une expérience utilisateur optimale.</p>
                     </div>
@@ -63,8 +63,8 @@ require_once 'config.php';
                     <div class="link-container">
                         <h3>Commencez dès maintenant !</h3>
                         <div class="btn-group">
-                            <a href="inscription.php" class="btn">✨ Créer un compte</a>
-                            <a href="connexion.php" class="btn btn-outline">🔑 Se connecter</a>
+                            <a href="inscription.php" class="btn"> Créer un compte</a>
+                            <a href="connexion.php" class="btn btn-outline"> Se connecter</a>
                         </div>
                         <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
                             Rejoignez notre plateforme sécurisée en quelques clics
@@ -77,26 +77,26 @@ require_once 'config.php';
         <!-- Section Documentation séparée -->
         <div class="container">
             <div class="documentation-section">
-                <h3>📚 Documentation du Projet</h3>
+                <h3> Documentation du Projet</h3>
                 <p style="text-align: center; color: #666; margin-bottom: 2rem;">
                     Accédez à la documentation complète et aux outils de développement
                 </p>
                 
                 <div class="doc-links">
                     <a href="rapport.html" target="_blank" class="doc-link">
-                        <span class="icon">📄</span>
+                        <span class="icon"></span>
                         <div class="title">Rapport Complet</div>
                         <div class="description">Documentation technique détaillée avec code</div>
                     </a>
                     
                     <a href="generate-pdf.php" target="_blank" class="doc-link">
-                        <span class="icon">📥</span>
+                        <span class="icon"></span>
                         <div class="title">Version PDF</div>
                         <div class="description">Télécharger le rapport au format PDF</div>
                     </a>
                     
                     <a href="SYNTHESE.md" target="_blank" class="doc-link">
-                        <span class="icon">📝</span>
+                        <span class="icon"></span>
                         <div class="title">Synthèse Technique</div>
                         <div class="description">Résumé exécutif et architecture</div>
                     </a>
@@ -104,10 +104,10 @@ require_once 'config.php';
                 
                 <?php if (isAdmin()): ?>
                     <div class="admin-tools">
-                        <strong>🔧 Outils d'Administration</strong>
-                        <a href="diagnostic.php">🔍 Diagnostic</a>
-                        <a href="fix-admin.php">🔧 Réparation Admin</a>
-                        <a href="init.php">⚙️ Réinstallation</a>
+                        <strong> Outils d'Administration</strong>
+                        <a href="diagnostic.php"> Diagnostic</a>
+                        <a href="fix-admin.php"> Réparation Admin</a>
+                        <a href="init.php"> Réinstallation</a>
                     </div>
                 <?php endif; ?>
             </div>
