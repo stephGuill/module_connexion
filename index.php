@@ -1,4 +1,7 @@
 <?php
+// Fichier principal d'accueil du module de connexion
+// - Charge les fonctions et la configuration depuis `config.php`
+// - Affiche la navigation et le contenu en fonction de l'état de session
 require_once 'config.php';
 ?>
 
@@ -13,17 +16,21 @@ require_once 'config.php';
 <body>
     <div class="container">
         <header>
+            <!-- Navigation principale : link selon l'état de session -->
             <nav>
                 <div class="logo"> ModuleConnect</div>
                 <ul class="nav-links">
                     <li><a href="index.php">Accueil</a></li>
                     <?php if (isLoggedIn()): ?>
+                        <!-- Liens visibles uniquement aux utilisateurs connectés -->
                         <li><a href="profil.php">Mon Profil</a></li>
                         <?php if (isAdmin()): ?>
+                            <!-- Lien administration visible uniquement aux admins -->
                             <li><a href="admin.php">Administration</a></li>
                         <?php endif; ?>
                         <li><a href="deconnexion.php">Déconnexion</a></li>
                     <?php else: ?>
+                        <!-- Liens pour visiteurs non authentifiés -->
                         <li><a href="connexion.php">Connexion</a></li>
                         <li><a href="inscription.php">Inscription</a></li>
                     <?php endif; ?>
@@ -35,14 +42,20 @@ require_once 'config.php';
             <div class="welcome-section">
                 <?php if (isLoggedIn()): ?>
                     <?php
-                        // Safely obtain a display name from session with fallbacks
+                        // Obtenir en toute sécurité un nom d'affichage depuis la session.
+                        // On utilise sanitize() pour éviter les injections HTML et on prévoit
+                        // différentes clés qui peuvent contenir le nom selon l'implémentation.
                         if (!empty($_SESSION['user_prenom'])) {
+                            // prénom stocké dans la session (préféré)
                             $displayName = sanitize($_SESSION['user_prenom']);
                         } elseif (!empty($_SESSION['user_login'])) {
+                            // identifiant de connexion utilisé comme repli
                             $displayName = sanitize($_SESSION['user_login']);
                         } elseif (!empty($_SESSION['user_nom'])) {
+                            // nom de famille utilisé comme repli
                             $displayName = sanitize($_SESSION['user_nom']);
                         } else {
+                            // nom générique si aucune info disponible
                             $displayName = 'Utilisateur';
                         }
                     ?>
@@ -53,6 +66,7 @@ require_once 'config.php';
                     <p>Une plateforme sécurisée pour la gestion des comptes utilisateurs. Créez votre compte ou connectez-vous pour accéder à votre espace personnel.</p>
                 <?php endif; ?>
 
+                <!-- Section présentant des fonctionnalités / avantages -->
                 <div class="features">
                     <div class="feature-card">
                         <div class="feature-icon">👤</div>
@@ -86,45 +100,7 @@ require_once 'config.php';
             </div>
         </main>
 
-        <!-- Section Documentation séparée -->
-        <div class="container">
-            <div class="documentation-section">
-                <h3> Documentation du Projet</h3>
-                <p style="text-align: center; color: #666; margin-bottom: 2rem;">
-                    Accédez à la documentation complète et aux outils de développement
-                </p>
-                
-                <div class="doc-links">
-                    <a href="rapport.html" target="_blank" class="doc-link">
-                        <span class="icon"></span>
-                        <div class="title">Rapport Complet</div>
-                        <div class="description">Documentation technique détaillée avec code</div>
-                    </a>
-                    
-                    <a href="generate-pdf.php" target="_blank" class="doc-link">
-                        <span class="icon"></span>
-                        <div class="title">Version PDF</div>
-                        <div class="description">Télécharger le rapport au format PDF</div>
-                    </a>
-                    
-                    <a href="SYNTHESE.md" target="_blank" class="doc-link">
-                        <span class="icon"></span>
-                        <div class="title">Synthèse Technique</div>
-                        <div class="description">Résumé exécutif et architecture</div>
-                    </a>
-                </div>
-                
-                <?php if (isAdmin()): ?>
-                    <div class="admin-tools">
-                        <strong> Outils d'Administration</strong>
-                        <a href="diagnostic.php"> Diagnostic</a>
-                        <a href="fix-admin.php"> Réparation Admin</a>
-                        <a href="init.php"> Réinstallation</a>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-
+        <!-- Pied de page : informations légales et copyright -->
         <footer style="text-align: center; padding: 2rem; color: rgba(255,255,255,0.8);">
             <p>&copy; 2025 ModuleConnect - Tous droits réservés</p>
         </footer>
