@@ -32,6 +32,10 @@ require_once 'config.php';
                     <?php else: ?>
                         <!-- Liens pour visiteurs non authentifiés -->
                         <li><a href="connexion.php">Connexion</a></li>
+                    <?php endif; ?>
+
+                    <!-- Afficher le lien Inscription seulement si l'utilisateur n'est pas admin -->
+                    <?php if (!isAdmin()): ?>
                         <li><a href="inscription.php">Inscription</a></li>
                     <?php endif; ?>
                 </ul>
