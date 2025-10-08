@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
+<!-- partie html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
