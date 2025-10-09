@@ -18,4 +18,5 @@ session_destroy();
 
 // redirige vers la page d'accueil
 redirect('index.php');
+
 ?>
