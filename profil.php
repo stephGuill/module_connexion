@@ -129,6 +129,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - Module de Connexion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">ModuleConnect</div>
+                <ul class="nav-links">
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="profil.php">Mon Profil</a></li>
+                    <?php if (isAdmin()): ?>
+                        <li><a href="admin.php">Administration</a></li>
+                    <?php endif; ?>
+                    <li><a href="deconnexion.php">Déconnexion</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="user-info">
+                <h2>Mon Profil</h2>
+                <p>Connecté en tant que :<?= sanitize($_SESSION['user_prenom'] . ' ' . $_SESSION['user_nom']); ?></p>
+                    </div>
+
+                    <div class="form-container">
+                        <?php if ($succes) : ?>
+                            <div class="message success">
+                                Vos informations ont été mises à jour avec succès !
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (!empty($errors)): ?>
+                            <div class="message error">
+                                  Erreur(s) détectée(s) :
+                                <ul style="margin-left: 20px; margin-top: 10px;">
+                                <?php foreach ($errors as $error): ?>
+                                    <li><?= $error ?></li>
+                                <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+
+                        <form method="POST" action="profil.php">
+                    <h3>Informations personnelles</h3>
+                    
+                    <div class="form-group">
+                        <label for="login">Login :</label>
+                        <input type="text" id="login" name="login" required 
+                               value="<?= sanitize($user['login']) ?>"
+                               placeholder="Votre nom d'utilisateur">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" id="prenom" name="prenom" required 
+                               value="<?= sanitize($user['prenom']) ?>"
+                               placeholder="Votre prénom">
+                    </div>
+
+
 
 
 
