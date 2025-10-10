@@ -194,6 +194,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                placeholder="Votre prénom">
                     </div>
 
+                    <div class="form_group">
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" required
+                               value="<?= sanitize($user['nom']) ?>"
+                               placeholder="Votre nom de famille">
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Changer le mot de passe (optionnel)</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">
+                        Laissez ces champs vides si vous ne souhaitez pas changer votre mot de passe.
+                    </p>
+
+                     <div class="form-group">
+                        <label for="current_password">Mot de passe actuel :</label>
+                        <input type="password" id="current_password" name="current_password" 
+                               placeholder="Votre mot de passe actuel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="new_password">Nouveau mot de passe :</label>
+                        <input type="password" id="new_password" name="new_password" 
+                               placeholder="Au moins 6 caractères">
+                    </div>
+
+                     <div class="form-group">
+                        <label for="confirm_new_password">Confirmer le nouveau mot de passe :</label>
+                        <input type="password" id="confirm_new_password" name="confirm_new_password" 
+                               placeholder="Répétez le nouveau mot de passe">
+                    </div>
+                    
+                    <button type="submit" class="btn form-btn">Mettre à jour mon profil</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
 
 
 
