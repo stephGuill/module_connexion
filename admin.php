@@ -28,8 +28,23 @@ $message = '';
                 $message = "Utilisateur supprimé avec succès.";
             } else {
                 $message = "Erreur lors de la suppression ou utilisateur introuvable.";
-                
             }
-        } 
+        } catch (PDOExeption $e) {
+            $message = "Erreur lors de la suppression : " . $e->getMessage();
+        }
+    } else {
+        $message = "Vous ne pouvez pas supprimer votre propre compte.";
     }
  } 
+
+//  récupère tous les utilisateurs
+try {
+    $pdo = getDbConnection();
+    $stmt = $pdo->query("SELECT id, login, prénom, nom, created_at FROM utilisateurs ORDER BY created_at DESC");
+    $users = $stmt->fetchAll();
+} catch (PDOException $e) {
+    die("Erreur lors de la récupération des utilisateurs : " .$e->getMessage());
+}
+?>
+<!DOCTYPE html>
+<html lang="fr">
