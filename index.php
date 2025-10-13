@@ -95,6 +95,7 @@ require_once 'config.php';
                         <div class="btn-group">
                             <a href="inscription.php" class="btn"> Créer un compte</a>
                             <a href="connexion.php" class="btn btn-outline"> Se connecter</a>
+                            <a href="logout.php" class="btn btn-outline"> Se déconnecter</a>
                         </div>
                         <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
                             Rejoignez notre plateforme sécurisée en quelques clics
