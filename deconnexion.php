@@ -5,9 +5,11 @@ require_once 'config.php';
 $_SESSION = array();
 
 // condition si une session cookie existe, on la supprime
-if (init_get("session.use_cookies")) {
+// Vérifier si PHP utilise des cookies pour la session avant de supprimer le cookie
+if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
-    setcookie(seeion_name(), '', time() - 42000,
+    // Supprimer le cookie de session côté client en le réinitialisant dans le passé
+    setcookie(session_name(), '', time() - 42000,
         $params["path"], $params["domain"],
         $params["secure"], $params["httponly"]
     );
