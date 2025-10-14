@@ -73,7 +73,7 @@ require_once 'config.php';
                 <!-- Section présentant des fonctionnalités / avantages -->
                 <div class="features">
                     <div class="feature-card">
-                        <div class="feature-icon">👤</div>
+                        <div class="feature-icon"></div>
                         <h3>Gestion de Profil</h3>
                         <p>Créez et gérez facilement votre profil utilisateur avec toutes vos informations personnelles.</p>
                     </div>
